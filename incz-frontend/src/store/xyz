@@ -1,0 +1,55 @@
+import Cart from "../service/cart";
+
+const state = {
+  totalCartsItems: 0,
+  cartList: [],
+  cartDetails: {},
+  errors: {},
+  cartListHeaders: [
+    {
+      text: "Id",
+      value: "id",
+    },
+    {
+      text: "Waga",
+      value: "size",
+    },
+    {
+      text: "Akcje",
+      value: "actions",
+      sortable: false,
+    },
+  ],
+  cartsPerPage: 5,
+};
+
+const mutations = {
+  setCartList(state, payload) {
+    state.totalCartsItems = payload.count;
+    state.cartList = [...payload];
+  },
+  setCartItemsPerPage(state, payload) {
+    state.cartsPerPage = payload;
+  },
+};
+const actions = {
+  async fetchCartList(context, params) {
+    try {
+      context.commit("setCartList", await Cart.list(params));
+    }
+    catch (err) {
+      console.log(err)
+    }
+  },
+
+  async deleteCart({ commit }, payload) {
+    await new Cart(payload).remove();
+    commit("showMessage", "Koszyk został pomyślnie usunięty.");
+  },
+};
+
+export default {
+  state,
+  mutations,
+  actions,
+};

@@ -1,2 +1,5 @@
 pip install -r requirements.txt
-uvicorn main:app --reload
+
+python manage.py migrate
+
+python manage.py runserver
