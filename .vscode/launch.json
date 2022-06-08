@@ -5,14 +5,14 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: FastAPI",
+            "name": "Python: Django",
             "type": "python",
             "request": "launch",
-            "module": "uvicorn",
+            "program": "${workspaceFolder}/incz-back/manage.py",
             "args": [
-                "main:app"
+                "runserver"
             ],
-            "jinja": true,
+            "django": true,
             "justMyCode": true
         }
     ]

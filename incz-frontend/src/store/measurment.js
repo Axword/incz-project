@@ -1,35 +1,46 @@
 import Measurement from "../service/measurement";
 
 const state = {
-  totalMeasurementsItems: 0,
   measurementList: [],
-  measurementDetails: {},
   errors: {},
   measurementListHeaders: [
     {
-      text: "timestamp",
+      text: "Data pomiaru",
       value: "timestamp",
     },
     {
-      text: "Pomiar X",
-      value: "measure_y_one",
+      text: "Wartość całkowita przyśpieszenia",
+      value: "measure_acceleration_total_vector",
     },
     {
-      text: "Pomiar Y",
-      value: "measure_y_two",
+      text: "Prędkości kątowej osi Y",
+      value: "measure_angle_pitch",
     },
     {
-      text: "Pomiar Z",
-      value: "measure_z_one",
-      sortable: false,
+      text: "Prędkość osi Y",
+      value: "measure_acceleration_pitch",
+    },
+    {
+      text: "Prędkości kątowej osi Z",
+      value: "measure_angle_yaw",
+    },
+    {
+      text: "Prędkości osi Z",
+      value: "measure_acceleration_yaw",
+    },
+    {
+      text: "Moc sygnału odbiornika jeden",
+      value: "measure_reciver_one_rx",
+    },
+    {
+      text: "Moc sygnału odbiornika dwa",
+      value: "measure_reciver_two_rx",
     },
   ],
-  measurementsPerPage: 5,
 };
 
 const mutations = {
   setMeasurementList(state, payload) {
-    state.totalMeasurementsItems = payload.count;
     state.measurementList = [...payload];
   },
   setMeasurementsItemsPerPage(state, payload) {

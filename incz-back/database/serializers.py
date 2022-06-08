@@ -13,3 +13,9 @@ class MeasurmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Measurement
         fields = "__all__"
+
+class MeasurmentSerializerCreate(serializers.ModelSerializer):
+
+    class Meta:
+        model = Measurement
+        fields = "__all__"

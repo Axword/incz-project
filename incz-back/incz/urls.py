@@ -13,12 +13,16 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.urls import path, include
 from database.views import CartViewSet, MeasurmentViewSet
 from rest_framework.routers import DefaultRouter
+from rest_framework_swagger.views import get_swagger_view
 
+schema_view = get_swagger_view(title='Aplikacja API')
 
-router = DefaultRouter()
+router = DefaultRouter(
+)
 
 router.register('cart', CartViewSet, basename='cart')
 
@@ -26,5 +30,5 @@ router.register('measurment', MeasurmentViewSet, basename='measurment')
 
 
 urlpatterns = [
-    path('', include(router.urls))
+    path('', include(router.urls)),
 ]

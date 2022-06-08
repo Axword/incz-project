@@ -2,3 +2,4 @@ djangorestframework
 django
 django-cors-headers
 django-filter
+django-rest-swagger

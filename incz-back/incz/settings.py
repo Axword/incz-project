@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_filters',
     'database',
+    'rest_framework_swagger',
 ]
 
 MIDDLEWARE = [
@@ -118,7 +119,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 CORS_ORIGIN_WHITELIST = os.getenv(
-    'CORS_ORIGIN_WHITELIST', 'http://localhost:8080,https://localhost:8080,http://192.168.1.11',
+    'CORS_ORIGIN_WHITELIST', 'http://localhost:8080,https://localhost:8080,http://192.168.1.11,http://192.168.61.17:8080',
 ).split(',')
 
 CORS_ORIGIN_ALLOW_ALL = True

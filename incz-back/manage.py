@@ -2,7 +2,9 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-
+from mqqt.fakeCarts import run as run_fake
+from mqqt.subscriber import run as run_real
+import threading
 
 def main():
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'incz.settings')
@@ -18,4 +20,7 @@ def main():
 
 
 if __name__ == '__main__':
+    if 'runserver' in str(sys.argv):
+        #threading.Thread(target=run_fake).start()
+        threading.Thread(target=run_real).start()
     main()

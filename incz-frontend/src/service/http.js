@@ -20,7 +20,7 @@ class Http {
       headers: {
         "Content-Type": "application/json",
       },
-      baseURL: "http://localhost:8001",
+      baseURL: "http://192.168.61.17:8000/",
     };
   }
 }

@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 
 from database.models import Cart, Measurement
-from database.serializers import CartSerializer, MeasurmentSerializer
+from database.serializers import CartSerializer, MeasurmentSerializer, MeasurmentSerializerCreate
 
 
 class CartViewSet(ModelViewSet):
@@ -17,8 +17,7 @@ class CartViewSet(ModelViewSet):
 
 
 class MeasurmentViewSet(ModelViewSet):
-    queryset = Measurement.objects.all()
-    serializer_class = MeasurmentSerializer
+    queryset = Measurement.objects.all().order_by('-timestamp')
     filter_fields = '__all__'
     filter_backends = (OrderingFilter, DjangoFilterBackend)
     ordering_fields = '__all__'
@@ -28,3 +27,8 @@ class MeasurmentViewSet(ModelViewSet):
         instance = self.queryset.last()
         serializer = self.get_serializer(instance)
         return Response(serializer.data)
+
+    def get_serializer_class(self):
+        if self.action == 'create':
+            return MeasurmentSerializerCreate
+        return MeasurmentSerializer
