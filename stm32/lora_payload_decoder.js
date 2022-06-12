@@ -51,18 +51,12 @@ gyro_ZASC = String.fromCharCode.apply(null, gyro_rawZ);
 acc_YASC = String.fromCharCode.apply(null, acc_rawY);
 acc_ZASC = String.fromCharCode.apply(null, acc_rawZ);
 acc_totalASC = String.fromCharCode.apply(null, acc_total_vector);
-//RX1_ASC = String.fromCharCode.apply(null, RX1);
-//RX2_ASC = String.fromCharCode.apply(null, RX2);
 gyro_YASC = gyro_YASC.replace("\u0000", "");
 gyro_ZASC = gyro_ZASC.replace("\u0000", "");
 acc_YASC = acc_YASC.replace("\u0000", "");
 acc_ZASC = acc_ZASC.replace("\u0000", "");
 acc_totalASC = acc_totalASC.replace("\u0000", "");
-//RX1_ASC = RX1_ASC.replace("\u0000", "");
-//RX2_ASC = RX2_ASC.replace("\u0000", "");
-//acc_totalASC = String.fromCharCode.apply(null, acc_total_vector);
-//gyro_YASC = String.fromCharCode.apply(null, gyro_rawY);
-//gyro_ZASC = String.fromCharCode.apply(null, gyro_rawZ);
+
  
 
  
